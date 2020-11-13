@@ -31,6 +31,6 @@ public class Armas {
 
     @Override
     public String toString() {
-        return "Armas{" + "tipo=" + tipo + ", dano=" + dano + '}';
+        return tipo;
     }
 }
