@@ -10,8 +10,8 @@ public class Campistas extends Personas {
         super();
     }
 
-    public Campistas(boolean supervisor, boolean campista, boolean estado, String nombre, int edad, String sexo) {
-        super(nombre, edad, sexo);
+    public Campistas(boolean supervisor, boolean campista, boolean estado, String nombre, int edad, String sexo, String arma) {
+        super(nombre, edad, sexo, arma);
         this.supervisor = supervisor;
         this.campista = campista;
         this.estado = estado;

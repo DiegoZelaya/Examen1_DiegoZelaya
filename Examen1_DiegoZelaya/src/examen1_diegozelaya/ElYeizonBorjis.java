@@ -8,8 +8,8 @@ public class ElYeizonBorjis extends Personas {
         super();
     }
 
-    public ElYeizonBorjis(int desaparecer, String nombre, int edad, String sexo) {
-        super(nombre, edad, sexo);
+    public ElYeizonBorjis(int desaparecer, String nombre, int edad, String sexo, String arma) {
+        super(nombre, edad, sexo, arma);
         this.desaparecer = desaparecer;
     }
 

@@ -36,9 +36,9 @@ public class Main extends javax.swing.JFrame {
         jTabbedPane5 = new javax.swing.JTabbedPane();
         Agregar = new javax.swing.JPanel();
         NombreLabel = new javax.swing.JLabel();
-        agregar_nombre = new javax.swing.JFormattedTextField();
+        agregar_edad = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        agregar_edad = new javax.swing.JTextField();
+        agregar_nombre = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         agregar_sexoM = new javax.swing.JRadioButton();
@@ -69,10 +69,10 @@ public class Main extends javax.swing.JFrame {
         NombreLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         NombreLabel.setText("Nombre");
 
-        agregar_nombre.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        agregar_nombre.addActionListener(new java.awt.event.ActionListener() {
+        agregar_edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
+        agregar_edad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregar_nombreActionPerformed(evt);
+                agregar_edadActionPerformed(evt);
             }
         });
 
@@ -156,10 +156,6 @@ public class Main extends javax.swing.JFrame {
         Agregar.setLayout(AgregarLayout);
         AgregarLayout.setHorizontalGroup(
             AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(421, 421, 421))
             .addGroup(AgregarLayout.createSequentialGroup()
                 .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarLayout.createSequentialGroup()
@@ -195,30 +191,34 @@ public class Main extends javax.swing.JFrame {
                             .addComponent(jLabel1))
                         .addGap(18, 18, 18)
                         .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(agregar_edad, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                             .addComponent(agregar_nombre)
                             .addGroup(AgregarLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(agregar_sexoM)
                                 .addGap(29, 29, 29)
                                 .addComponent(agregar_sexoF))
-                            .addComponent(agregar_arma)))
+                            .addComponent(agregar_arma)
+                            .addComponent(agregar_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(AgregarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(421, 421, 421))
         );
         AgregarLayout.setVerticalGroup(
             AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(agregar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NombreLabel))
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NombreLabel)
+                    .addComponent(agregar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(agregar_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(agregar_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -294,11 +294,13 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 912, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -321,15 +323,33 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_agregar_sexoMActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        persona.add(new Personas(agregar_edad.getText()),agregar_nombre.getText());
-        agregar_edad.setText("");
+        String nombre=agregar_nombre.getText();
+        int edad = Integer.parseInt(agregar_edad.getText());
+        String sexo="";
+        if (agregar_sexoM.isSelected()) {
+            sexo = "Masculino";
+        } else {
+            sexo = "Femenino";
+        }
+        String arma=agregar_arma.getText();
+        personas.add(new Personas(nombre,edad,sexo,arma));
         agregar_nombre.setText("");
+        agregar_edad.setText("");
+        agregar_sexoM.setSelected(true);
+        agregar_sexoF.setSelected(false);
+        agregar_arma.setText("");
+        agregar_tipoS.setSelected(true);
+        agregar_tipoC.setSelected(false);
+        agregar_tipoY.setSelected(false);
+        agregar_estadoV.setSelected(true);
+        agregar_estadoD.setSelected(false);
+        agregar_desaparecidos.setText("");
         JOptionPane.showMessageDialog(this, "Persona Agregada!");
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void agregar_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_nombreActionPerformed
+    private void agregar_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_edadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_agregar_nombreActionPerformed
+    }//GEN-LAST:event_agregar_edadActionPerformed
 
     private void agregar_estadoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_estadoVActionPerformed
         // TODO add your handling code here:
@@ -350,7 +370,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -382,10 +402,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JTextField agregar_arma;
     private javax.swing.JFormattedTextField agregar_desaparecidos;
-    private javax.swing.JTextField agregar_edad;
+    private javax.swing.JFormattedTextField agregar_edad;
     private javax.swing.JRadioButton agregar_estadoD;
     private javax.swing.JRadioButton agregar_estadoV;
-    private javax.swing.JFormattedTextField agregar_nombre;
+    private javax.swing.JTextField agregar_nombre;
     private javax.swing.JRadioButton agregar_sexoF;
     private javax.swing.JRadioButton agregar_sexoM;
     private javax.swing.JRadioButton agregar_tipoC;
@@ -404,6 +424,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane5;
     // End of variables declaration//GEN-END:variables
 
-private ArrayList<Personas> persona=new ArrayList();
+private ArrayList<Personas> personas=new ArrayList();
 
 }
