@@ -6,6 +6,7 @@
 package examen1_diegozelaya;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,29 +32,47 @@ public class Main extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         jTabbedPane5 = new javax.swing.JTabbedPane();
         Agregar = new javax.swing.JPanel();
         NombreLabel = new javax.swing.JLabel();
-        agregar_edad = new javax.swing.JFormattedTextField();
+        agregar_nombre = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
-        agregar_nombre = new javax.swing.JTextField();
+        agregar_edad = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         agregar_sexoM = new javax.swing.JRadioButton();
         agregar_sexoF = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
+        agregar_arma = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        agregar_tipoC = new javax.swing.JRadioButton();
+        agregar_tipoY = new javax.swing.JRadioButton();
+        agregar_tipoS = new javax.swing.JRadioButton();
+        jLabel6 = new javax.swing.JLabel();
+        agregar_estadoV = new javax.swing.JRadioButton();
+        agregar_estadoD = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
+        agregar_desaparecidos = new javax.swing.JFormattedTextField();
         Estadisticas = new javax.swing.JPanel();
         Modificar = new javax.swing.JPanel();
         Eliminar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jTabbedPane5.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane5StateChanged(evt);
+            }
+        });
+
         NombreLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         NombreLabel.setText("Nombre");
 
-        agregar_edad.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        agregar_edad.addActionListener(new java.awt.event.ActionListener() {
+        agregar_nombre.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        agregar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                agregar_edadActionPerformed(evt);
+                agregar_nombreActionPerformed(evt);
             }
         });
 
@@ -70,7 +89,8 @@ public class Main extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Sexo");
 
-        agregar_sexoM.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        buttonGroup1.add(agregar_sexoM);
+        agregar_sexoM.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         agregar_sexoM.setText("Masculino");
         agregar_sexoM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +98,8 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        agregar_sexoF.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        buttonGroup1.add(agregar_sexoF);
+        agregar_sexoF.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         agregar_sexoF.setText("Femenino");
         agregar_sexoF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,50 +107,144 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setText("Arma");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("Tipo");
+
+        buttonGroup2.add(agregar_tipoC);
+        agregar_tipoC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        agregar_tipoC.setText("Campista");
+        agregar_tipoC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_tipoCActionPerformed(evt);
+            }
+        });
+
+        buttonGroup2.add(agregar_tipoY);
+        agregar_tipoY.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        agregar_tipoY.setText("YeizonBorjis");
+
+        buttonGroup2.add(agregar_tipoS);
+        agregar_tipoS.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        agregar_tipoS.setText("Supervisor");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Desaparecio");
+
+        buttonGroup3.add(agregar_estadoV);
+        agregar_estadoV.setText("Vivo");
+        agregar_estadoV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_estadoVActionPerformed(evt);
+            }
+        });
+
+        buttonGroup3.add(agregar_estadoD);
+        agregar_estadoD.setText("Desaparecido");
+        agregar_estadoD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                agregar_estadoDActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Estado");
+
         javax.swing.GroupLayout AgregarLayout = new javax.swing.GroupLayout(Agregar);
         Agregar.setLayout(AgregarLayout);
         AgregarLayout.setHorizontalGroup(
             AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AgregarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(421, 421, 421))
             .addGroup(AgregarLayout.createSequentialGroup()
                 .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(NombreLabel)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
                         .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(agregar_edad)
-                                .addComponent(agregar_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))
                             .addGroup(AgregarLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(agregar_sexoM)
+                                .addGap(203, 203, 203)
+                                .addComponent(agregar_tipoS)
+                                .addGap(31, 31, 31)
+                                .addComponent(agregar_tipoC))
+                            .addGroup(AgregarLayout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(agregar_estadoV)
                                 .addGap(18, 18, 18)
-                                .addComponent(agregar_sexoF))))
+                                .addComponent(agregar_estadoD)))
+                        .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AgregarLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(agregar_desaparecidos, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AgregarLayout.createSequentialGroup()
+                                .addGap(132, 132, 132)
+                                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(agregar_tipoY)))))
+                    .addGroup(AgregarLayout.createSequentialGroup()
+                        .addGap(283, 283, 283)
+                        .addComponent(jLabel5))
+                    .addGroup(AgregarLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(NombreLabel)
+                            .addComponent(jLabel1))
+                        .addGap(18, 18, 18)
+                        .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(agregar_edad, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
+                            .addComponent(agregar_nombre)
+                            .addGroup(AgregarLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(agregar_sexoM)
+                                .addGap(29, 29, 29)
+                                .addComponent(agregar_sexoF))
+                            .addComponent(agregar_arma)))
                     .addGroup(AgregarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         AgregarLayout.setVerticalGroup(
             AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AgregarLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(NombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(agregar_nombre))
-                .addGap(49, 49, 49)
-                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(agregar_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(35, 35, 35)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(agregar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NombreLabel))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(agregar_edad, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(agregar_sexoM, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(agregar_sexoF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 227, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(agregar_arma)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel4)
+                .addGap(17, 17, 17)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agregar_tipoS)
+                    .addComponent(agregar_tipoC)
+                    .addComponent(agregar_tipoY))
+                .addGap(33, 33, 33)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(18, 18, 18)
+                .addGroup(AgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(agregar_estadoV)
+                    .addComponent(agregar_estadoD)
+                    .addComponent(agregar_desaparecidos, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -179,37 +294,50 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(84, Short.MAX_VALUE))
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 912, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
-                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+            .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 533, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void agregar_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_edadActionPerformed
+    private void jTabbedPane5StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane5StateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_agregar_edadActionPerformed
+    }//GEN-LAST:event_jTabbedPane5StateChanged
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        persona.add(new Personas(agregar_nombre.getText()),agregar_edad.getText());
-    }//GEN-LAST:event_jButton1MouseClicked
+    private void agregar_tipoCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_tipoCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregar_tipoCActionPerformed
+
+    private void agregar_sexoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_sexoFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregar_sexoFActionPerformed
 
     private void agregar_sexoMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_sexoMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_agregar_sexoMActionPerformed
 
-    private void agregar_sexoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_sexoFActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        persona.add(new Personas(agregar_edad.getText()),agregar_nombre.getText());
+        agregar_edad.setText("");
+        agregar_nombre.setText("");
+        JOptionPane.showMessageDialog(this, "Persona Agregada!");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void agregar_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_nombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_agregar_sexoFActionPerformed
+    }//GEN-LAST:event_agregar_nombreActionPerformed
+
+    private void agregar_estadoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_estadoVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregar_estadoVActionPerformed
+
+    private void agregar_estadoDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregar_estadoDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_agregar_estadoDActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,15 +380,27 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JPanel Modificar;
     private javax.swing.JLabel NombreLabel;
-    private javax.swing.JFormattedTextField agregar_edad;
-    private javax.swing.JTextField agregar_nombre;
+    private javax.swing.JTextField agregar_arma;
+    private javax.swing.JFormattedTextField agregar_desaparecidos;
+    private javax.swing.JTextField agregar_edad;
+    private javax.swing.JRadioButton agregar_estadoD;
+    private javax.swing.JRadioButton agregar_estadoV;
+    private javax.swing.JFormattedTextField agregar_nombre;
     private javax.swing.JRadioButton agregar_sexoF;
     private javax.swing.JRadioButton agregar_sexoM;
+    private javax.swing.JRadioButton agregar_tipoC;
+    private javax.swing.JRadioButton agregar_tipoS;
+    private javax.swing.JRadioButton agregar_tipoY;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTabbedPane jTabbedPane5;
     // End of variables declaration//GEN-END:variables
 
